@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CRUD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function()
+                     {
+        $("#update_sid_btn").click(function()
+                                { 
+            
+            let val1 = document.getElementById("update_sem_txt").value ;				  
+            let val2 = document.getElementById("update_center_txt").value.toLowerCase() ;
+            let val3 = document.getElementById("update_fname_txt").value.toLowerCase() ;
+            let val4 = document.getElementById("update_lname_txt").value.toLowerCase() ;
+                        $.ajax({
+                            type:"PUT",
+                            url: "http://localhost:2000/students/" + $("#update_id_txt").val(),
+                            contentType: "application/json",
+                            data: JSON.stringify(
+                            {
+                            "id": parseInt($("#update_id_txt").val()),
+                            "firstname": val3.toLowerCase(),
+                            "lastname": val4.toLowerCase(),
+                            "dateofbirth": $("#update_dob_txt").val(),
+                            "semester": $("#update_sem_txt").val(),
+                            "center": val2.toLowerCase(),
+                            "cgpa": parseFloat($("#update_cgpad_txt").val()),
+                            "email": $("#update_email_txt").val()
+                            }),
+                            success: function (data, textStatus, jQxhr) {
+                              alert("Data Updted");
+                            },
+                            error: function (xhr, textStatus, error) {
+                              alert("Data not updated");
+                            }
+                        });
+        });
+    });
+</script>
+
+  
+	
+<style>
+  
+.jumbotron
+{
+margin-bottom: 0px !important;
+}	
+.carousel-inner img {
+    width: 100%;
+    height: 50%;
+}
+	
+</style>
+
+</head>
+<body>
+  
+
+
+  
+<div class="jumbotron jumbotron-fluid" style="background-color:#0ea1bb">
+  <div class="container">
+    <h1 class="display-4">CRUD</h1>
+	  <hr class="my-4">
+    <p class="lead">Student management</p>
+  </div>
+</div>
+	
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="HomePage.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Insert.html">Insert & Get Students Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="FIND.html">Search a Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Update.html">Update a Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Delete.html">Delete a Student</a>
+          </li>
+        </ul>
+      </nav>		
+</header>
+
+<center>
+    <br><br>SID : <input type = "text" name = "update_id_txt" id = "update_id_txt" ><br><br>
+    FIRST NAME : <input type = "text" name = "update_fname_txt" id = "update_fname_txt" ><br><br>
+    LAST NAME : <input type = "text" name = "update_lname_txt" id = "update_lname_txt" ><br><br>
+    DATE OF BIRTH : <input type = "date" name = "update_dob_txt" id = "update_dob_txt" ><br><br>
+    SEMESTER : <input type = "text" name = "update_sem_txt" id = "update_sem_txt" ><br><br>
+    CENTER : <input type = "text" name = "update_center_txt" id = "update_center_txt" ><br><br>
+    CGPA : <input type = "text" name = "update_cgpad_txt" id = "update_cgpad_txt" ><br><br>
+    EMAIL : <input type = "text" name = "update_email_txt" id = "update_email_txt" ><br><br>
+    <button class="button button1" name ="update_sid_btn" id = "update_sid_btn">UPDATE BY SID</button><br><br>
+    <p id="rqst_update"></p>
+</center>
+
+  <div class="card-footer text-center" style="background-color:#0ea1bb">
+    <h3 class="card-title">CRUD</h3>
+    <p class="card-text">Copyright&copy2022 SLIIT,Inc.</p>
+  </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script><script>
+		$(document).ready(function()
+						 {
+			
+			let val1 = document.getElementById("find_center_txt").value.toLowerCase() ;
+			let val2 = document.getElementById("find_fname_txt").value.toLowerCase() ;
+			let val3 = document.getElementById("find_lname_txt").value.toLowerCase() ;
+			
+			$("#find_id_btn").click(function()
+							{
+						$.ajax({
+								url: "http://localhost:2000/students/id=" + $("#find_id_txt").val(),
+								type: "GET",
+								contentType: "application/json",
+								dataType: "json",
+								success: function (data, textStatus, jQxhr) {
+
+									
+									var out = " ID : "+data.id+"<br> First Name : "+data.firstname+
+									"<br> Last Name :"+data.lastname+"<br> Date OF Birth : "+data.dateofbirth+"<br> Center : "+data.center+"<br> Cgpa : "+data.cgpa+"<br> Email : "+data.email+"<br> Semester : "+data.semester+"<br>";
+									
+										document.getElementById("SFname").innerHTML=out;
+
+								},
+								error: function (jqXhr, textStatus, errorThrown) {
+								console.log(errorThrown);
+								} 
+						});
+			});
+			$("#find_fname_btn").click(function()
+							{
+						$.ajax({
+								url: "http://localhost:2000/students/firstname=" + $("#find_fname_txt").val(),
+								type: "GET",
+								contentType: "application/json",
+								dataType: "json",
+								success: function (data, textStatus, jQxhr) {
+									var out = " ID : "+data.id+"<br> First Name : "+data.firstname+
+									"<br> Last Name :"+data.lastname+"<br> Date OF Birth : "+data.dateofbirth+"<br> Center : "+data.center+"<br> Cgpa : "+data.cgpa+"<br> Email : "+data.email+"<br> Semester : "+data.semester+"<br>";
+									
+										document.getElementById("SFname").innerHTML=out;
+								},
+								error: function (jqXhr, textStatus, errorThrown) {
+								console.log(errorThrown);
+								} 
+						});
+			});
+		
+			
+			
+		$("#find_lname_btn").click(function()
+							{
+						$.ajax({
+								url: "http://localhost:2000/students/lastname=" + $("#find_lname_txt").val(),
+								type: "GET",
+								contentType: "application/json",
+								dataType: "json",
+								success: function (data, textStatus, jQxhr) {
+									var out = " ID : "+data.id+"<br> First Name : "+data.firstname+
+									"<br> Last Name :"+data.lastname+"<br> Date OF Birth : "+data.dateofbirth+"<br> Center : "+data.center+"<br> Cgpa : "+data.cgpa+"<br> Email : "+data.email+"<br> Semester : "+data.semester+"<br>";
+									
+										document.getElementById("SFname").innerHTML=out;
+								},
+								error: function (jqXhr, textStatus, errorThrown) {
+								console.log(errorThrown);
+								} 
+						});
+			});
+	
+			
+			$("#find_center_btn").click(function()
+							{
+						$.ajax({
+								url: "http://localhost:2000/students/center=" + $("#find_center_txt").val(),
+								type: "GET",
+								contentType: "application/json",
+								dataType: "json",
+								success: function (data, textStatus, jQxhr) {
+									var out = " ID : "+data.id+"<br> First Name : "+data.firstname+
+									"<br> Last Name :"+data.lastname+"<br> Date OF Birth : "+data.dateofbirth+"<br> Center : "+data.center+"<br> Cgpa : "+data.cgpa+"<br> Email : "+data.email+"<br> Semester : "+data.semester+"<br>";
+									
+										document.getElementById("SFname").innerHTML=out;
+								},
+								error: function (jqXhr, textStatus, errorThrown) {
+								console.log(errorThrown);
+								} 
+						});
+			});
+			
+			$("#find_semester_btn").click(function()
+							{
+						$.ajax({
+								url: "http://localhost:2000/students/semester=" + $("#find_semester_txt").val(),
+								type: "GET",
+								contentType: "application/json",
+								dataType: "json",
+								success: function (data, textStatus, jQxhr) {
+									var out = " ID : "+data.id+"<br> First Name : "+data.firstname+
+									"<br> Last Name :"+data.lastname+"<br> Date OF Birth : "+data.dateofbirth+"<br> Center : "+data.center+"<br> Cgpa : "+data.cgpa+"<br> Email : "+data.email+"<br> Semester : "+data.semester+"<br>";
+									
+										document.getElementById("SFname").innerHTML=out;
+								},
+								error: function (jqXhr, textStatus, errorThrown) {
+								console.log(errorThrown);
+								} 
+						});
+			});
+			$("#find_cgpa_btn").click(function()
+							{
+						$.ajax({
+								url: "http://localhost:2000/students/cgpa=" + $("#find_cgpa_txt").val(),
+								type: "GET",
+								contentType: "application/json",
+								dataType: "json",
+								success: function (data, textStatus, jQxhr) {
+									var out = " ID : "+data.id+"<br> First Name : "+data.firstname+
+									"<br> Last Name :"+data.lastname+"<br> Date OF Birth : "+data.dateofbirth+"<br> Center : "+data.center+"<br> Cgpa : "+data.cgpa+"<br> Email : "+data.email+"<br> Semester : "+data.semester+"<br>";
+									
+										document.getElementById("SFname").innerHTML=out;
+								},
+								error: function (jqXhr, textStatus, errorThrown) {
+								console.log(errorThrown);
+								} 
+						});
+			});
+						 });
+									
+	</script>
+
+	
+<style>
+  
+.jumbotron
+{
+margin-bottom: 0px !important;
+}	
+.carousel-inner img {
+    width: 100%;
+    height: 50%;
+}
+	
+</style>
+
+</head>
+<body>
+<table id="tblemp">
+	<tr><th>id</th><th>First Name</th><th>Last Name</th><th>Date OF Birth</th><th>Center</th><th>Cgpa</th><th>Email</th><th>Semester</th></tr>
+</table>
+
+
+
+<div class="jumbotron jumbotron-fluid" style="background-color:#0ea1bb">
+  <div class="container">
+    <h1 class="display-4">CRUD</h1>
+	  <hr class="my-4">
+    <p class="lead">Student management</p>
+  </div>
+</div>
+	
+<header>
+	<nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" href="HomePage.html">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="Insert.html">Insert & Get Students Info</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="FIND.html">Search a Student</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="Update.html">Update a Student</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="Delete.html">Delete a Student</a>
+		  </li>
+		</ul>
+	  </nav>		
+</header>
+
+
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
+<center>
+	<br><h1>Find a Student</h1>
+  <br>SID : <input type = "text" name = "find_id_txt" id = "find_id_txt" ><br><br>
+  FIRST NAME : <input type = "text" name = "find_fname_txt" id = "find_fname_txt" ><br><br>
+  LAST NAME : <input type = "text" name = "find_lname_txt" id = "find_lname_txt" ><br><br>
+      CENTER : <input type = "text" name = "find_center_txt" id = "find_center_txt" ><br><br>
+      SEMESTER : <input type = "text" name = "find_semester_txt" id = "find_semester_txt" ><br><br>
+      CGPA : <input type = "text" name = "find_cgpa_txt" id = "find_cgpa_txt" ><br><br>
+  
+   <button class="button button1" name ="find_id_btn" id = "find_id_btn">FIND BY ID</button>
+       <button class="button button1" name ="find_fname_btn" id = "find_fname_btn">FIND BY FIRST NAME</button>
+   <button class="button button1" name ="find_lname_btn" id = "find_lname_btn">FIND BY LAST NAME</button>
+       <button class="button button1" name ="find_center_btn" id = "find_center_btn">FIND BY CENTER</button>
+       <button class="button button1" name ="find_semester_btn" id = "find_semester_btn">FIND BY SEMESTER</button>
+       <button class="button button1" name ="find_cgpa_btn" id = "find_cgpa_btn">FIND BY CGPA</button><br>
+  <p id="SID"></p>
+  <p id="SFname"></p>
+  <p id="SLname"></p>
+  <p id="SCenter"></p>
+  <p id="SCGPA"></p>
+  <p id="SSemester"></p>
+  <p id="DOB"></p>
+  <p id="Semail"></p>
+
+  
+</center>
+
+
+
+<div class="card-footer text-center" style="background-color:#0ea1bb">
+  <h3 class="card-title">CRUD</h3>
+  <p class="card-text">Copyright&copy2022 SLIIT,Inc.</p>
+</div>
+</body>
+</html>
